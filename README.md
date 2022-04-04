@@ -9,6 +9,6 @@ Objectifs :
    - Vues
    - URLs d'accès
    - Formulaires
-2. Mobiliser l'utilisation de styles CSS cohérents, en particulier Bootstrap 4
+2. Mobiliser l'utilisation de styles CSS cohérents, en particulier Bootstrap
 
 Voir énoncé sur la page LMS du cours.
