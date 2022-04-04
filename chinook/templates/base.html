@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,13 @@
 </head>
 
 <body>
-    <header>Chinook Assignment</header>
+    <header>
+        Chinook Assignment with SQLite<br>
+        <img src="{% static 'images/sqlite-logo.png' %}" width=80px alt="logo"/>
+    </header>
     {% block content %}{% endblock %}
-    <footer><em>&copy; ISAE-SUPAERO</em></footer>
+    <footer>
+        <em>&copy; ISAE-SUPAERO</em>
+    </footer>
 </body>
 </html>
