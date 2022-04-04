@@ -3,21 +3,42 @@
 {% block title %}Chinook Albums List{% endblock title%}
 
 {% block content %}
-<h1>Albums</h1>
 
-<form action="{% url 'disks:albums_list' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit"/>
-</form>
+    <div class="row pb-3">
+        <h1>Albums</h1>
+    </div>
 
-{% if albums %}
-    <ul>
-    {% for album in albums %}
-        <li><a href="{% url 'disks:album_details' album.id %}">{{ album.title }}</a> by {{ album.artist.name }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No album available.</p>
-{% endif %}
+    <div class="clearfix">
+        <div class="float-right pb-3">
+            <form action="{% url 'disks:albums_list' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input class="btn btn-primary" type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+    {% if albums %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for album in albums %}
+                <tr>
+                    <td><a href="{% url 'disks:album_details' album.id %}">{{ album.title }}</a></td>
+                    <td>{{ album.artist.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="jumbotron"><i>No album available.</i></div>
+    {% endif %}
+    </div>
+
 {% endblock content %}
