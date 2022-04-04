@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Chinook Albums List{% endblock title%}
+
+{% block content %}
 <h1>Albums</h1>
 
 <form action="{% url 'disks:albums_list' %}" method="post">
@@ -15,3 +20,4 @@
 {% else %}
     <p>No album available.</p>
 {% endif %}
+{% endblock content %}
