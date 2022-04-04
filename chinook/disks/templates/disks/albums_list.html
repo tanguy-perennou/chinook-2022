@@ -3,7 +3,7 @@
 {% if albums %}
     <ul>
     {% for album in albums %}
-        <li><a href="/disks/{{ album.id }}">{{ album.title }}</a> by {{ album.artist.name }}</li>
+        <li><a href="{% url 'album_details' album.id %}">{{ album.title }}</a> by {{ album.artist.name }}</li>
     {% endfor %}
     </ul>
 {% else %}
