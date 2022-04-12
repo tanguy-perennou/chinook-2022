@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="row pb-3">
-    <h2>{{ album.title }} <small>by {{ album.artist.name }}</small></h2>
+    <h2><i class="fa-solid fa-record-vinyl"></i>&emsp;{{ album.title }} <small><em>by {{ album.artist.name }}</em></small></h2>
 </div>
 
 <div class="row">
@@ -34,7 +34,7 @@
 </div>
 
 <div class="row pt-3">
-    <a class="btn btn-primary" href="{% url 'disks:albums_list' %}">Back to album list</a>
+    <a class="btn btn-primary" href="{% url 'disks:albums_list' %}"><i class="fa-solid fa-house-chimney"></i>&emsp;Back to album list</a>
 </div>
 
 {% endblock content %}
