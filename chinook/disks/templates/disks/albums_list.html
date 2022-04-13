@@ -8,11 +8,13 @@
         <h1>Albums</h1>
     </div>
 
+    {% load crispy_forms_tags %}
+
     <div class="clearfix">
         <div class="float-right pb-3">
-            <form action="{% url 'disks:albums_list' %}" method="post">
+            <form class="uniForm" action="{% url 'disks:albums_list' %}" method="post">
                 {% csrf_token %}
-                {{ form }}
+                {{ form|crispy }}
                 <input class="btn btn-primary" type="submit" value="Submit"/>
             </form>
         </div>
