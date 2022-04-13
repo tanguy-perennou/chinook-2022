@@ -12,6 +12,16 @@ class Track(models.Model):
     # unitPrice: a DecimalField(max_digits=3, decimal_places=2) would also work
     album = models.ForeignKey('Album', on_delete=models.CASCADE)
 
+    def ms_as_mins_secs(self):
+        """Human friendly duration label for milliseconds field
+
+        Returns:
+            string: 3:40 for a 3 mins 40 secs duration
+        """
+        minutes = self.milliseconds / 60000
+        seconds = (self.milliseconds % 60000) / 1000
+        return f'%d:%02d' % (minutes, seconds)
+
     def __str__(self):
         return self.name
 
