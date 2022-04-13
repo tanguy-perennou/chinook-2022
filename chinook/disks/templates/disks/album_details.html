@@ -14,7 +14,7 @@
         <tr>
             <th>Track name</th>
             <th>Composer(s)</th>
-            <th>Duration (ms)</th>
+            <th>Duration (mins:secs)</th>
             <th>Size (bytes)</th>
             <th>Unit Price (&euro;)</th>
         </tr>
@@ -24,7 +24,7 @@
             <tr>
                 <td>{{ track.name }}</td>
                 <td>{{ track.composer }}</td>
-                <td>{{ track.milliseconds }}</td>
+                <td>{{ track.ms_as_mins_secs }}</td>
                 <td>{{ track.bytes }}</td>
                 <td>{{ track.unitPrice }}</td>
             </tr>
