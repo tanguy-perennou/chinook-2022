@@ -6,7 +6,19 @@
 
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
+    <!-- 
     {{ form.as_p }}
+    -->
+    <div class="mb-3">
+        <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}</label>
+        <br/>
+        {{ form.username }}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.password.id_for_label }}" class="form-label">{{ form.password.label }}</label>
+        <br/>
+        {{ form.password }}
+    </div>
     <input class="btn btn-primary" type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
 </form>
