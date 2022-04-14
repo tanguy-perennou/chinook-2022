@@ -14,7 +14,11 @@
         <div class="row pb-3">
             <header>
                 Chinook Assignment with SQLite<br>
-                <img src="{% static 'images/sqlite-logo.png' %}" width=80px alt="logo"/>
+                <img src="{% static 'images/sqlite-logo.png' %}" width=80px alt="logo"/><br>
+                {% if user.is_authenticated %}
+                Hi {{ user }}. <a class="btn btn-success" href="{% url 'logout' %}">Logout when you're done &#x1F912;</a>
+                <!-- Smiley emoji &#x1F912; found at https://www.w3schools.com/charsets/ref_emoji_smileys.asp -->
+                {% endif %}
             </header>
         </div>
 
