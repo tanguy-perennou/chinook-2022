@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %} {# Yes, load it again even if base loads it #}
 
 {% block title %}Chinook Albums List{% endblock title%}
 
@@ -10,10 +11,12 @@
 
     <div class="clearfix">
         <div class="float-right pb-3">
-            <form action="{% url 'disks:albums_list' %}" method="post">
+            <form action="{% url 'disks:albums_list' %}" method="post" class="form">
                 {% csrf_token %}
-                {{ form }}
-                <input class="btn btn-primary" type="submit" value="Submit"/>
+                {% bootstrap_form form %}
+                {% buttons %}
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                {% endbuttons %}
             </form>
         </div>
     </div>
