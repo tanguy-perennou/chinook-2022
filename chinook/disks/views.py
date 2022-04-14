@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_list_or_404, get_object_or_404, render
 
 from .forms import SearchForm
 from .models import Album
 
-
+@login_required() 
 def albums_list(request):
     """
     Get albums from database, either all of them or those matching a POST request
@@ -22,7 +23,7 @@ def albums_list(request):
         albums = get_list_or_404(Album)
     return render(request, 'disks/albums_list.html', {'albums': albums, 'form': form})
 
-
+@login_required() 
 def album_details(request, album_id):
     """
     Get the specified album

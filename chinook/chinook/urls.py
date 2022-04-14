@@ -22,4 +22,5 @@ urlpatterns = [
     path('disks/', include('disks.urls')),
     path('', views.albums_list, name='home'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
