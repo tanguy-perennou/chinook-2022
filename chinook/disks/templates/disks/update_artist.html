@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %} {# Yes, load it again even if base loads it #}
+
+{% block title %}Create New Artist{% endblock title%}
+
+{% block content %}
+
+<form action="{% url 'disks:update_artist' form.instance.id %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a href="{% url 'disks:albums_list' %}" class="btn btn-primary">Cancel</a>
+    {% endbuttons %}
+</form>
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 from django.shortcuts import get_list_or_404, get_object_or_404, render, redirect
 
 from .forms import SearchForm, ArtistForm
-from .models import Album
+from .models import Album, Artist
 
 
 def albums_list(request):
@@ -54,3 +54,29 @@ def create_artist(request):
             form.save()
             return redirect('disks:albums_list')
     return render(request, 'disks/create_artist.html', {'form': form})
+
+
+def update_artist(request, artist_id):
+    """
+    Update an existing artist based on user input in form
+
+    Args:
+        request: the incoming request, GET or POST
+        artist_id: the database ID of the artist to update
+
+    Returns:
+        - a page with a pre-filled form if it was a GET request,
+        - a page with a pre-filled form if it was a POST request
+          with invalid data,
+        - or the list of albums if it was a POST with valid data
+    """
+    # Fist get data from the database
+    artist = Artist.objects.get(pk=artist_id)
+    if request.method == 'GET':
+        form = ArtistForm(instance=artist)
+    elif request.method == 'POST':
+        form = ArtistForm(request.POST, instance=artist)
+        if form.is_valid():
+            form.save()
+            return redirect('disks:albums_list')
+    return render(request, 'disks/update_artist.html', {'form': form})
